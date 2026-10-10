@@ -80,13 +80,14 @@
         
         <section id = "subscribe" class="subscribe-card">
           <h2> 가을 소식 받기 </h2>
-          <form>
+          <form id="subscribe-form">
             <label for="email"> 이메일</label>
             <input type="email" id="email" name="email">
-            <button type="submit"> 소식 받기 </button>
-          
+            <button id="subscribeButton" type="submit"> 소식 받기 </button>
           </form>
-       
+          <p id="subscribeMessage" aria-live="polite">
+              이메일을 입력한뒤 신청해주세요.
+          </p>
           
         </section>
         
@@ -102,6 +103,7 @@
 
    
 
+    <Script src="script.js"></Script>
 
 </body>
 </html>
