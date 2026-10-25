@@ -129,7 +129,7 @@
         </section>
 
         <section id = "event-practice">
-          <h2> 가을 참여 준비 </h2>
+          <h2> 가을 참여 준비 </h2>       
 
           <div class="event-grid">
             <article class="event-card">
@@ -155,13 +155,77 @@
               </p>
               
               <button id="startButton" type="button" disabled>
-                참여 신청하기
+                참가 신청서 제출하기
               </button>
             </article>
           </div>
         </section>
-        
 
+        <dialog id = "recording-dialog" aria-labelledby="recording-title" aria-describedby="recording-description">
+          <h2 id="recording-title"> 정보 활용 안내</h2>
+          <p id="recording-description">참가 신청에 참가자 정보를 활용할 수 있습니다.</p>
+          <div class = "dialog-actions">
+            <button id = "recording-cancel" type="button"> 돌아가기</button>
+            <button id = "recording-confirm" type="button"> 동의하고 신청서 제출하기</button>
+          </div>
+        </dialog>
+
+        <section id = "training-flow" class="training-flow" hidden>
+          <h2> 참가 신청</h2>
+          <p class = "progress" aria-label="신청 진행 단계">
+            <span class="progress__item">1. 가장 좋아하는 책</span>
+            <span class="progress__item">2. 작년 읽은 책은 몇 권?</span>
+            <span class="progress__item">3. 신청서 확인</span>
+          </p>
+
+          <section class="step" data-step="1" hidden>
+            <h3> 가장 좋아하는 책 제목을 입력해주세요</h3>
+            <label for="presentation-title">책 제목</label>
+            <input id="presentation-title" type="text" placeholder="예 : 그리고 아무도 없었다" aria-describedby="title-error">
+            <p id="title-error" class="error-message" aria-live="polite"></p>
+            <button id="title-next" type="button">1년간 읽은 책의 권 수 선택하기</button>
+          </section>
+
+          <section class="step" data-step="2" hidden>
+            <h3> 1년간 읽은 책의 권 수를 선택해주세요.</h3>
+            <label for="duration-range">읽은 책 권 수</label>
+            <input id="duration-range" type="range" min="0" max="10" step="1" value="1">
+            <output id="duration-value" for="duration-range">5권</output>
+            <label><input type="checkbox" id="qna-option">선호하는 시간대 </label>
+            <fieldset id="qna-options" hidden>
+              <legend>시간대</legend>
+              <label><input type="radio" name="qna-count" value="1"> 평일 저녁 </label>
+              <label><input type="radio" name="qna-count" value="2" checked> 주말 오전 </label>
+              <label><input type="radio" name="qna-count" value="3"> 둘 다 </label>
+
+            </fieldset>
+            <div class="step-actions">
+              <button id="option-prev" type="button">이전</button>
+              <button id="option-next" type="button">내용 확인하기</button>
+            </div>
+          </section>
+
+          <section class="step" data-step="3" hidden>
+            <h3>입력한 내용을 확인해주세요.</h3>
+            <div class="summary-list">
+              <div><span>책 제목 : </span><strong id="summary-title"></strong> </div>
+              <div><span>읽은 권 수 : </span><strong id="summary-duration"></strong> </div>
+              <div><span>선호하는 시간대 : </span><strong id="summary-qna"></strong> </div>
+            </div>
+            <div class="step-actions">
+              <button id="summary-prev" type="button">수정하기</button>
+              <button id="finish-button" type="button">신청 완료하기</button>
+            </div>
+          </section>
+
+          <section class="step complete-step" data-step="4" hidden>
+            <h3>참가 신청이 완료되었습니다.</h3>
+            <p> 설정한 내용을 확인했습니다. 필요하면 다시 작성할 수 있습니다.</p>
+            <button id="restart-button" type="button">다시 작성하기</button>  
+          </section>
+        </section>
+
+    
 
 
 

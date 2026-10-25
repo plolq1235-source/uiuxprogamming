@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>독서 가을</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- UX계획
+
+    사용자 : 독서 소모임 '가을'에 대해 알고 싶은 사람
+    목적 : 독서 소모임 '가을'에 대한 정보를 전달하고 참여를 유도한다.
+    핵심 행동 : 가을에 대한 정보를 확인하고 소모임에 참여한다.
+    정보 순서 : 소모임 소개, 활동 내용, 참여 방법, 소식받기
+
+    -->
+
+
+    <header>
+      <h1>독서 소모임 가을</h1>
+      <p>독서 소모임 '가을'에 어서오세요.</p>
+
+      <nav aria-label = "주요 메뉴">
+          <a href = "#about"> 가을 소개</a>
+          <a href = "#features"> 가을 활동 내용</a>
+          <a href = "#steps"> 가을 참여 방법</a>
+          <a href = "#subscribe"> 가을 소식 받기</a>
+      </nav>
+    </header>
+
+    <main>
+        <section id = "about">
+          
+          <h2>가을 소개 </h2>
+          <h3>독서 소모임 '가을'에 대해 알아보고, 참여하세요.</h3>
+      
+          <img src="assets/images/service.png" 
+                alt="독서 소모임 가을 이미지">
+          <p> 독서 소모임 가을은 독서에 관심 있는 사람들끼리 모여 책을 함께 읽고, 소통하는 공간입니다. </p>
+
+        </section>
+
+        <section id="features">
+
+          <h2>가을 활동 내용</h2>
+
+          <div class="tabs" role="tablist" aria-label="기능 선택">
+            <button
+              id="tab-practice"
+              class="tab is-active"
+              type="button"
+              role="tab"
+              aria-selected="true"
+              aria-controls="feature-practice"
+              data-target="feature-practice">
+              온라인 모임
+              </button>
+            
+            
+            <button
+              id="tab-audience"
+              class="tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="feature-audience"
+              data-target="feature-audience">
+              오프라인 모임
+              </button>
+
+            <button
+              id="tab-feedback"
+              class="tab"
+              type="button"
+              role="tab"
+              aria-selected="false"
+              aria-controls="feature-feedback"
+              data-target="feature-feedback">
+              회원별 책 추천
+              </button>
+          </div>
+
+          <div
+            id="feature-practice"
+            class="panel is-active"
+            role="tabpanel"
+            aria-labelledby="tab-practice">
+            <h3> 온라인 모임 : 매주 금요일 저녁 7시</h3>
+            <p> skype 화상채팅기능을 이용하여 온라인으로 참여합니다. </p>
+          </div>
+
+          <div 
+            id="feature-audience"
+            class="panel"
+            role="tabpanel"
+            aria-labelledby="tab-audience"
+            hidden>
+            <h3> 오프라인 모임 : 매주 토요일 오전 10시 </h3>
+            <p> 장소 : 서울시 강서구 카페 ubuntu 소모임실 </p>
+          </div>
+
+          <div
+            id="feature-feedback"
+            class="panel"
+            role="tabpanel"
+            aria-labelledby="tab-feedback"
+            hidden>
+            <h3> 회원별 책 추천 </h3>
+            <p> 매달 회원들이 추천한 책을 선정하여 함께 읽고, 토론합니다. </p>
+          </div>
+
+        </section>
+        
+        <section id = "steps">
+          
+             <h2> 가을 참여 방법 </h2>
+               <ol>
+                <li> 홈페이지 또는 유선으로 참여를 신청합니다. </li>
+                <li> 매 달 지정된 책을 읽습니다. </li>
+                <li> 모임에 참여하여 책에 대한 의견을 나눕니다. </li>
+                <li> 자신만의 책을 소개합니다. </li>
+               </ol>
+
+        </section>
+
+        <section id = "event-practice">
+          <h2> 가을 참여 준비 </h2>       
+
+          <div class="event-grid">
+            <article class="event-card">
+              <h3>화면 테마</h3>
+              <button id="themeButton" type="button">다크테마로 바꾸기</button>
+            </article>
+
+            <article class="event-card">
+              <h3> 참가자 정보 </h3>
+              <label for="nickname">참가자 이름</label>
+              <input type="text" id="nickname" maxlength="10">
+              <p id="nicknameCount" aria-live="polite">0/10</p> 
+              </article> 
+            
+            <article class="event-card">
+              <h3> 정보 활용 동의</h3>
+              <label class="agree-row">
+                <input type="checkbox" id="agreeCheck">
+                참가자 정보활용에 동의합니다.
+              </label>  
+              <p id="agreeMessage" aria-live="polite">
+                동의 여부를 선택해주세요. 
+              </p>
+              
+              <button id="startButton" type="button" disabled>
+                참가 신청서 제출하기
+              </button>
+            </article>
+          </div>
+        </section>
+
+        <dialog id = "recording-dialog" aria-labelledby="recording-title" aria-describedby="recording-description">
+          <h2 id="recording-title"> 정보 활용 안내</h2>
+          <p id="recording-description">참가 신청에 참가자 정보를 활용할 수 있습니다.</p>
+          <div class = "dialog-actions">
+            <button id = "recording-cancel" type="button"> 돌아가기</button>
+            <button id = "recording-confirm" type="button"> 동의하고 신청서 제출하기</button>
+          </div>
+        </dialog>
+
+        <section id = "training-flow" class="training-flow" hidden>
+          <h2> 참가 신청</h2>
+          <p class = "progress" aria-label="신청 진행 단계">
+            <span class="progress__item">1. 가장 좋아하는 책</span>
+            <span class="progress__item">2. 작년 읽은 책은 몇 권?</span>
+            <span class="progress__item">3. 신청서 확인</span>
+          </p>
+
+          <section class="step" data-step="1" hidden>
+            <h3> 가장 좋아하는 책 제목을 입력해주세요</h3>
+            <label for="presentation-title">책 제목</label>
+            <input id="presentation-title" type="text" placeholder="예 : 그리고 아무도 없었다" aria-describedby="title-error">
+            <p id="title-error" class="error-message" aria-live="polite"></p>
+            <button id="title-next" type="button">1년간 읽은 책의 권 수 선택하기</button>
+          </section>
+
+          <section class="step" data-step="2" hidden>
+            <h3> 1년간 읽은 책의 권 수를 선택해주세요.</h3>
+            <label for="duration-range">읽은 책 권 수</label>
+            <input id="duration-range" type="range" min="0" max="10" step="1" value="1">
+            <output id="duration-value" for="duration-range">5권</output>
+            <label><input type="checkbox" id="qna-option">선호하는 시간대 </label>
+            <fieldset id="qna-options" hidden>
+              <legend>시간대</legend>
+              <label><input type="radio" name="qna-count" value="1"> 평일 저녁 </label>
+              <label><input type="radio" name="qna-count" value="2" checked> 주말 오전 </label>
+              <label><input type="radio" name="qna-count" value="3"> 둘 다 </label>
+
+            </fieldset>
+            <div class="step-actions">
+              <button id="option-prev" type="button">이전</button>
+              <button id="option-next" type="button">내용 확인하기</button>
+            </div>
+          </section>
+
+          <section class="step" data-step="3" hidden>
+            <h3>입력한 내용을 확인해주세요.</h3>
+            <div class="summary-list">
+              <div><span>책 제목 : </span><strong id="summary-title"></strong> </div>
+              <div><span>읽은 권 수 : </span><strong id="summary-duration"></strong> </div>
+              <div><span>선호하는 시간대 : </span><strong id="summary-qna"></strong> </div>
+            </div>
+            <div class="step-actions">
+              <button id="summary-prev" type="button">수정하기</button>
+              <button id="finish-button" type="button">신청 완료하기</button>
+            </div>
+          </section>
+
+          <section class="step complete-step" data-step="4" hidden>
+            <h3>참가 신청이 완료되었습니다.</h3>
+            <p> 설정한 내용을 확인했습니다. 필요하면 다시 작성할 수 있습니다.</p>
+            <button id="restart-button" type="button">다시 작성하기</button>  
+          </section>
+        </section>
+
+    
+
+
+
+        <section id = "subscribe" class="subscribe-card">
+          <h2> 가을 소식 받기 </h2>
+          <form id="subscribe-form">
+            <label for="email"> 이메일</label>
+            <input type="email" id="email" name="email">
+            <button id="subscribeButton" type="submit"> 소식 받기 </button>
+          </form>
+          <p id="subscribeMessage" aria-live="polite">
+              이메일을 입력한뒤 신청해주세요.
+          </p>
+          
+        </section>
+        
+      </main>
+
+    <footer>
+      <small> 2026 독서 소모임 가을 </small>
+      
+    </footer>
+    
+    
+    
+
+   
+
+    <Script src="script.js"></Script>
+
+</body>
+</html>
