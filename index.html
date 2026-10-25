@@ -173,9 +173,10 @@
         <section id = "training-flow" class="training-flow" hidden>
           <h2> 참가 신청</h2>
           <p class = "progress" aria-label="신청 진행 단계">
-            <span class="progress__item">1. 가장 좋아하는 책</span>
+            <span class="progress__item">1. 가장 좋아하는 책은?</span>
             <span class="progress__item">2. 작년 읽은 책은 몇 권?</span>
-            <span class="progress__item">3. 신청서 확인</span>
+            <span class="progress__item">3. 가장 좋아하는 장르는?</span>
+            <span class="progress__item">4. 신청서 확인</span>
           </p>
 
           <section class="step" data-step="1" hidden>
@@ -201,16 +202,36 @@
             </fieldset>
             <div class="step-actions">
               <button id="option-prev" type="button">이전</button>
-              <button id="option-next" type="button">내용 확인하기</button>
+              <button id="option-next" type="button">장르 선택하기</button>
             </div>
           </section>
 
           <section class="step" data-step="3" hidden>
+            <h3>가장 좋아하는 책의 장르를 선택해주세요.</h3>
+            <fieldset id="genre-options">
+              <legend>장르</legend>
+              <label><input type="radio" name="genre" value="소설" checked> 소설 </label>
+              <label><input type="radio" name="genre" value="에세이"> 에세이 </label>
+              <label><input type="radio" name="genre" value="시"> 시 </label>
+              <label><input type="radio" name="genre" value="자기계발"> 자기계발 </label>
+              <label><input type="radio" name="genre" value="역사"> 역사 </label>
+              <label><input type="radio" name="genre" value="과학"> 과학 </label>
+              <label><input type="radio" name="genre" value="판타지"> 판타지 </label>
+              <label><input type="radio" name="genre" value="미스터리"> 미스터리 </label>
+            </fieldset>
+            <div class="step-actions">
+              <button id="genre-prev" type="button">이전</button>
+              <button id="genre-next" type="button">내용 확인하기</button>
+            </div>
+          </section>
+
+          <section class="step" data-step="4" hidden>
             <h3>입력한 내용을 확인해주세요.</h3>
             <div class="summary-list">
               <div><span>책 제목 : </span><strong id="summary-title"></strong> </div>
               <div><span>읽은 권 수 : </span><strong id="summary-duration"></strong> </div>
               <div><span>선호하는 시간대 : </span><strong id="summary-qna"></strong> </div>
+              <div><span>좋아하는 장르 : </span><strong id="summary-genre"></strong> </div>
             </div>
             <div class="step-actions">
               <button id="summary-prev" type="button">수정하기</button>
@@ -218,7 +239,7 @@
             </div>
           </section>
 
-          <section class="step complete-step" data-step="4" hidden>
+          <section class="step complete-step" data-step="5" hidden>
             <h3>참가 신청이 완료되었습니다.</h3>
             <p> 설정한 내용을 확인했습니다. 필요하면 다시 작성할 수 있습니다.</p>
             <button id="restart-button" type="button">다시 작성하기</button>  

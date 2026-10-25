@@ -132,16 +132,19 @@ const qnaOption = document.querySelector("#qna-option");
 const qnaOptions = document.querySelector("#qna-options");
 const optionPrev = document.querySelector("#option-prev");
 const optionNext = document.querySelector("#option-next");
+const genrePrev = document.querySelector("#genre-prev");
+const genreNext = document.querySelector("#genre-next");
 const summaryPrev = document.querySelector("#summary-prev");
 const finishButton = document.querySelector("#finish-button");
 const restartButton = document.querySelector("#restart-button");
 const summaryTitle = document.querySelector("#summary-title");
 const summaryDuration = document.querySelector("#summary-duration");
 const summaryQna = document.querySelector("#summary-qna");
+const summaryGenre = document.querySelector("#summary-genre");
 const durationValues = ["0", "1", "2","3","4", "5","6","7","8","9", "10"];
 
 const formData = {
-    title:"", duration: "5", qna:false, qnaCount: "2"
+    title:"", duration: "5", qna:false, qnaCount: "2", genre: "소설"
 };
 
 function showStep(index) {
@@ -213,20 +216,28 @@ optionNext.addEventListener("click", () => {
     formData.qna = qnaOption.checked ;
     const count = document.querySelector('input[name="qna-count"]:checked');
     formData.qnaCount = count.value;
+    showStep(2);
+});
+
+genrePrev.addEventListener("click", () => { showStep(1)});
+genreNext.addEventListener("click", () => {
+    const selectedGenre = document.querySelector('input[name="genre"]:checked');
+    formData.genre = selectedGenre.value;
     summaryTitle.textContent = formData.title;
     summaryDuration.textContent = formData.duration + "권";
     summaryQna.textContent = formData.qna ? formData.qnaCount + "선택 " : "미선택";
-    showStep(2);
-
+    summaryGenre.textContent = formData.genre;
+    showStep(3);
 });
 
-summaryPrev.addEventListener("click", () => showStep(1));
-finishButton.addEventListener("click", () => showStep(3));
+summaryPrev.addEventListener("click", () => showStep(2));
+finishButton.addEventListener("click", () => showStep(4));
 restartButton.addEventListener("click", () => {
     formData.title = "";
     formData.duration = "5";
     formData.qna = false;
     formData.qnaCount = "2";
+    formData.genre = "소설";
     titleInput.value = "";
     titleError.textContent = "" ;
     titleInput.classList.remove("has-error");
@@ -235,8 +246,10 @@ restartButton.addEventListener("click", () => {
     qnaOption.checked = false ;
     qnaOptions.hidden = true ;
     document.querySelector('input[name="qna-count"][value="2"]').checked = true ;
+    document.querySelector('input[name="genre"][value="소설"]').checked = true ;
     summaryTitle.textContent = "";
     summaryDuration.textContent = "";
     summaryQna.textContent = "";
+    summaryGenre.textContent = "";
     showStep(0);
 });
